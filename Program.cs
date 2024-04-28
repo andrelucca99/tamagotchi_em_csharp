@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
+using Tamagotchi_em_csharp;
 
-internal class Program
+public class Program
 {
   protected static string Url { get; } = "https://pokeapi.co/api/v2/pokemon/";
-  private static void Main(string[] args)
+  public static void Main(string[] args)
   {
     void ExibirLogo(string logo)
     {
@@ -29,9 +30,10 @@ internal class Program
       switch (opcaoEscolhidaNumerica)
       {
         case 1:
-          BuscarListaDePokemons();
+          ListaDePokemons();
           break;
         case 2:
+          Console.Clear();
           Console.Write("Digite o Id ou Nome do pokemon: ");
           BuscarPokemon(Console.ReadLine()!);
           break;
@@ -44,27 +46,26 @@ internal class Program
       }
     }
 
-    void BuscarListaDePokemons()
+    void ListaDePokemons()
     {
       Console.Clear();
       ExibirLogo(@"
 █░░ █ █▀ ▀█▀ ▄▀█   █▀▄ █▀▀   █▀█ █▀█ █▄▀ █▀▀ █▀▄▀█ █▀█ █▄░█ █▀
 █▄▄ █ ▄█ ░█░ █▀█   █▄▀ ██▄   █▀▀ █▄█ █░█ ██▄ █░▀░█ █▄█ █░▀█ ▄█");
 
-      // var client = new RestClient("https://pokeapi.co/api/v2/pokemon/");
       var client = new RestClient(Url);
       RestRequest request = new RestRequest("", Method.Get);
       var response = client.Execute(request);
 
       if (response.StatusCode == System.Net.HttpStatusCode.OK)
       {
-        dynamic? jsonResponse = JsonConvert.DeserializeObject(response.Content!);
-        Console.WriteLine();
+        dynamic? jsonResponse = JsonConvert.DeserializeObject<PokemonSpecies>(response.Content!);
+        Console.WriteLine("\n");
 
         int indice = 1;
-        foreach (var pokemon in jsonResponse!.results)
+        foreach (var pokemon in jsonResponse!.Results)
         {
-          Console.WriteLine($"{indice} - {pokemon.name}");
+          Console.WriteLine($"{indice} - {pokemon.Name}");
           indice++;
         }
       }
@@ -81,17 +82,15 @@ internal class Program
 █▀▄ ▄▀█ █▀▄ █▀█ █▀   █▀▄ █▀█   █▀█ █▀█ █▄▀ █▀▀ █▀▄▀█ █▀█ █▄░█
 █▄▀ █▀█ █▄▀ █▄█ ▄█   █▄▀ █▄█   █▀▀ █▄█ █░█ ██▄ █░▀░█ █▄█ █░▀█");
 
+      Console.WriteLine("\n");
       var client = new RestClient($"{Url}{pokemon}");
       RestRequest request = new RestRequest("", Method.Get);
       var response = client.Execute(request);
 
       if (response.StatusCode == System.Net.HttpStatusCode.OK)
       {
-        dynamic? jsonResponse = JsonConvert.DeserializeObject(response.Content!);
-        Console.WriteLine($"Id: {jsonResponse!.id}");
-        Console.WriteLine($"Nome: {jsonResponse!.name}");
-        Console.WriteLine($"Tamanho: {jsonResponse!.height}");
-        Console.WriteLine($"Largura: {jsonResponse!.weight}");
+        dynamic? jsonResponse = JsonConvert.DeserializeObject<PokemonDetails>(response.Content!);
+        ExibirDetailsDoPokemon(jsonResponse!);
       }
       else Console.WriteLine(response.ErrorMessage);
 
@@ -99,6 +98,20 @@ internal class Program
       Console.ReadKey();
       Console.Clear();
       ExibirOpcoesDoMenu();
+    }
+
+    void ExibirDetailsDoPokemon(dynamic pokemon)
+    {
+      Console.WriteLine($"'{pokemon!.Name}', eu escolho você!!! \n");
+      ExibirLogo(@"𝘿𝙚𝙩𝙖𝙡𝙝𝙚𝙨 𝙙𝙤 𝙨𝙚𝙪 𝙥𝙤𝙠𝙚́𝙢𝙤𝙣:");
+      Console.WriteLine($"Nome: {pokemon!.Name}");
+      Console.WriteLine($"Altura: {pokemon!.Height}");
+      Console.WriteLine($"Peso: {pokemon!.Weight}");
+      Console.WriteLine("Habilidades: ");
+      foreach (var item in pokemon!.Abilities)
+      {
+        Console.WriteLine($"- {item.Ability.Name}");
+      }
     }
 
     void EncerraJogo()
