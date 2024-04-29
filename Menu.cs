@@ -9,17 +9,22 @@ public class Menu
 ░▒█░░ █▄▄█ █░▀░█ █▄▄█ █░▀█ █░░█ ░░█░░ █░░ █▀▀█ ▀█▀ 
 ░▒█░░ ▀░░▀ ▀░░░▀ ▀░░▀ ▀▀▀▀ ▀▀▀▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀▀▀
 ");
+    Thread.Sleep(1500);
     Console.Write("Digite seu nome: ");
     string? jogador = Console.ReadLine();
-    Console.WriteLine($"\nSeja bem vindo(a)! {jogador}, esolha uma das opções abaixo: ");
+    Console.WriteLine($"\nSeja bem vindo(a)! {jogador}, \nescolha uma das opções abaixo:");
   }
 
   public void ExibirOpcoesDoMenu()
   {
-    Console.WriteLine("\n Menu Inicial");
-    Console.WriteLine("\n1- Adotar um pokémon virtual");
-    Console.WriteLine("\n2- Ver seus pokémons");
-    Console.WriteLine("\n3- Sair");
+    Console.WriteLine();
+    Console.WriteLine(@"
+█▀▄▀█ █▀▀ █▄░█ █░█   █ █▄░█ █ █▀▀ █ ▄▀█ █░░
+█░▀░█ ██▄ █░▀█ █▄█   █ █░▀█ █ █▄▄ █ █▀█ █▄▄");
+    Console.WriteLine();
+    Console.WriteLine("1- Adotar um pokémon virtual");
+    Console.WriteLine("2- Ver seus pokémons");
+    Console.WriteLine("3- Sair");
     Console.Write("\nDigite a sua opção: ");
   }
 
@@ -35,16 +40,21 @@ public class Menu
 
   public void MenuDeAdocaoDePokemons()
   {
-    Console.WriteLine("\nMenu de adoção: ");
-    Console.WriteLine("\n1 - Ver lista de pokémons");
-    Console.WriteLine("\n2 - Ver detalhes do pokémon");
-    Console.WriteLine("\n3 - Adotar pokémon");
-    Console.WriteLine("\n4- Voltar ao menu inicial");
+    Console.WriteLine();
+    Console.WriteLine(@"
+█▀▄▀█ █▀▀ █▄░█ █░█   █▀▄ █▀▀   ▄▀█ █▀▄ █▀█ █▀▀ ▄▀█ █▀█ ▀
+█░▀░█ ██▄ █░▀█ █▄█   █▄▀ ██▄   █▀█ █▄▀ █▄█ █▄▄ █▀█ █▄█ ▄");
+    Console.WriteLine();
+    Console.WriteLine("1 - Ver lista de pokémons");
+    Console.WriteLine("2 - Ver detalhes do pokémon");
+    Console.WriteLine("3 - Adotar pokémon");
+    Console.WriteLine("4- Voltar ao menu inicial");
     Console.Write("\nDigite a sua opção: ");
   }
 
   public void ExibirListaDePokemons(List<PokemonResponseAPI> pokemons)
   {
+    Console.Clear();
     Console.WriteLine(@"
 █░░ █ █▀ ▀█▀ ▄▀█   █▀▄ █▀▀   █▀█ █▀█ █▄▀ █▀▀ █▀▄▀█ █▀█ █▄░█ █▀
 █▄▄ █ ▄█ ░█░ █▀█   █▄▀ ██▄   █▀▀ █▄█ █░█ ██▄ █░▀░█ █▄█ █░▀█ ▄█");
@@ -57,7 +67,10 @@ public class Menu
 
   public void ExibirDetailsDoPokemon(PokemonDetails details)
   {
-    Console.WriteLine(@"𝘿𝙚𝙩𝙖𝙡𝙝𝙚𝙨 𝙙𝙤 𝙨𝙚𝙪 𝙥𝙤𝙠𝙚́𝙢𝙤𝙣:");
+    Console.Clear();
+    Console.WriteLine(@"
+█▀▄ █▀▀ ▀█▀ ▄▀█ █░░ █░█ █▀▀ █▀   █▀▄ █▀█   █▀ █▀▀ █░█   █▀█ █▀█ █▄▀ █▀▀ █▀▄▀█ █▀█ █▄░█ ▀
+█▄▀ ██▄ ░█░ █▀█ █▄▄ █▀█ ██▄ ▄█   █▄▀ █▄█   ▄█ ██▄ █▄█   █▀▀ █▄█ █░█ ██▄ █░▀░█ █▄█ █░▀█ ▄");
     Console.WriteLine($"\nNome: {details!.Name}");
     Console.WriteLine($"Altura: {details!.Height}");
     Console.WriteLine($"Peso: {details!.Weight}");
@@ -77,7 +90,11 @@ public class Menu
 
   public void ExibirPokemonsAdotados(List<PokemonDetails> pokemonsAdotados)
   {
-    Console.WriteLine("Pokémons Adotados:");
+    Console.Clear();
+    Console.WriteLine(@"
+█▀█ █▀█ █▄▀ █▀▀ █▀▄▀█ █▀█ █▄░█ █▀   ▄▀█ █▀▄ █▀█ ▀█▀ ▄▀█ █▀▄ █▀█ █▀ ▀
+█▀▀ █▄█ █░█ ██▄ █░▀░█ █▄█ █░▀█ ▄█   █▀█ █▄▀ █▄█ ░█░ █▀█ █▄▀ █▄█ ▄█ ▄");
+    Console.WriteLine();
 
     if (pokemonsAdotados.Count == 0)
     {

@@ -46,7 +46,8 @@ public class Program
                 if (menu.ConfirmarAdocao())
                 {
                   pokemonsAdotados.Add(detalhes);
-                  Console.WriteLine($"Parabéns! Você acabou de adotar seu {detalhes.Name}!");
+                  Console.WriteLine($"{detalhes.Name}, EU ESCOLHO VOCÊ!!!");
+                  Console.WriteLine($"Parabéns! Você acabou de adotar seu Pokémon");
                 }
                 break;
               case 4:
