@@ -1,6 +1,6 @@
 namespace Tamagotchi_em_csharp;
 
-internal class PokemonDetails
+public class PokemonDetails
 {
   public List<AbilityDetail>? Abilities { get; set; }
   public string? Name { get; set; }
