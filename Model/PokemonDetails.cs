@@ -1,4 +1,4 @@
-namespace Tamagotchi_em_csharp;
+namespace Tamagotchi_em_csharp.Model;
 
 public class PokemonDetails
 {

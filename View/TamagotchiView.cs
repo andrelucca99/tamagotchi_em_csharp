@@ -1,6 +1,8 @@
-namespace Tamagotchi_em_csharp.Menu;
+using Tamagotchi_em_csharp.Model;
 
-public class Menu
+namespace Tamagotchi_em_csharp.View;
+
+public class TamagotchiView
 {
   public void MensagemInicial()
   {
