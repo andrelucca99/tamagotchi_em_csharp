@@ -9,14 +9,16 @@ public class TamagotchiController
   private TamagotchiView menu { get; set; }
   private PokemonService pokemonService { get; set; }
   private List<PokemonResponseAPI> pokemonsDisponiveis { get; set; }
-  private List<PokemonDetails> pokemonsAdotados { get; set; }
+  // private List<PokemonDetails> pokemonsAdotados { get; set; }
+  private List<PokemonDTO> pokemonsAdotados { get; set; }
 
   public TamagotchiController()
   {
     menu = new TamagotchiView();
     pokemonService = new PokemonService();
     pokemonsDisponiveis = pokemonService.ObeterPokemons();
-    pokemonsAdotados = new List<PokemonDetails>();
+    // pokemonsAdotados = new List<PokemonDetails>();
+    pokemonsAdotados = new List<PokemonDTO>();
   }
 
   public void Jogar()
@@ -26,7 +28,7 @@ public class TamagotchiController
     while (true)
     {
       menu.ExibirOpcoesDoMenu();
-      int escolha = menu.OpcaoEscolhidaDoJogador();
+      int escolha = menu.OpcaoEscolhidaDoJogador(4);
 
       switch (escolha)
       {
@@ -34,7 +36,7 @@ public class TamagotchiController
           while (true)
           {
             menu.MenuDeAdocaoDePokemons();
-            escolha = menu.OpcaoEscolhidaDoJogador();
+            escolha = menu.OpcaoEscolhidaDoJogador(4);
             switch (escolha)
             {
               case 1:
@@ -53,7 +55,10 @@ public class TamagotchiController
                 menu.ExibirDetailsDoPokemon(detalhes);
                 if (menu.ConfirmarAdocao())
                 {
-                  pokemonsAdotados.Add(detalhes);
+                  // pokemonsAdotados.Add(detalhes);
+                  PokemonDTO newPokemon = new();
+                  newPokemon.AtualizarPropriedades(detalhes);
+                  pokemonsAdotados.Add(newPokemon);
                   Console.Clear();
                   Console.WriteLine($"{detalhes.Name}, EU ESCOLHO VOCÊ!!!");
                   Console.WriteLine($"Parabéns! Você acabou de adotar seu Pokémon");
@@ -68,9 +73,46 @@ public class TamagotchiController
           }
           break;
         case 2:
-          menu.ExibirPokemonsAdotados(pokemonsAdotados);
+          // menu.ExibirPokemonsAdotados(pokemonsAdotados);
+          if (pokemonsAdotados.Count == 0)
+          {
+            Console.WriteLine("Você não tem nenhum pokémon adotado.");
+            break;
+          }
+
+          Console.WriteLine("Escolha um pokémon para interagir");
+          for (int i = 0; i < pokemonsAdotados.Count; i++)
+          {
+            Console.WriteLine($"{i + 1} - {pokemonsAdotados[i].Nome}");
+          }
+
+          int indicePokemon2 = menu.OpcaoEscolhidaDoJogador(pokemonsAdotados.Count) - 1;
+          PokemonDTO pokemonEscolhido = pokemonsAdotados[indicePokemon2];
+
+          int opcaoInteracao = 0;
+          while (opcaoInteracao != 4)
+          {
+            menu.MostrarMenuInteracao();
+            opcaoInteracao = menu.OpcaoEscolhidaDoJogador(4);
+
+            switch (opcaoInteracao)
+            {
+              case 1:
+                pokemonEscolhido.MostrarStatus();
+                break;
+              case 2:
+                pokemonEscolhido.Alimentar();
+                break;
+              case 3:
+                pokemonEscolhido.Brincar();
+                break;
+            }
+          }
           break;
         case 3:
+          menu.ExibirPokemonsAdotados(pokemonsAdotados);
+          break;
+        case 4:
           menu.EncerraJogo();
           return;
       }

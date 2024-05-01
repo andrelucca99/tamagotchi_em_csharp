@@ -25,16 +25,27 @@ public class TamagotchiView
 █░▀░█ ██▄ █░▀█ █▄█   █ █░▀█ █ █▄▄ █ █▀█ █▄▄");
     Console.WriteLine();
     Console.WriteLine("1- Adotar um pokémon virtual");
-    Console.WriteLine("2- Ver seus pokémons");
-    Console.WriteLine("3- Sair");
+    Console.WriteLine("2- Interagir com seu pokémon");
+    Console.WriteLine("3- Ver seus pokémons");
+    Console.WriteLine("4- Sair");
     Console.Write("\nDigite a sua opção: ");
   }
 
-  public int OpcaoEscolhidaDoJogador()
+  public void MostrarMenuInteracao()
+  {
+    Console.WriteLine("Menu de Interação:");
+    Console.WriteLine("1. Saber como o mascote está");
+    Console.WriteLine("2. Alimentar o mascote");
+    Console.WriteLine("3. Brincar com o mascote");
+    Console.WriteLine("4. Voltar");
+    Console.Write("Escolha uma opção: ");
+  }
+
+  public int OpcaoEscolhidaDoJogador(int opcao)
   {
     int opcaoEscolhida = int.Parse(Console.ReadLine()!);
 
-    if (opcaoEscolhida < 1 || opcaoEscolhida > 4)
+    if (opcaoEscolhida < 1 || opcaoEscolhida > opcao)
       Console.WriteLine("Opção inválida.");
 
     return opcaoEscolhida;
@@ -90,7 +101,7 @@ public class TamagotchiView
     return resposta!.ToLower() == "s";
   }
 
-  public void ExibirPokemonsAdotados(List<PokemonDetails> pokemonsAdotados)
+  public void ExibirPokemonsAdotados(List<PokemonDTO> pokemonsAdotados)
   {
     Console.Clear();
     Console.WriteLine(@"
@@ -106,7 +117,7 @@ public class TamagotchiView
     {
       for (int i = 0; i < pokemonsAdotados.Count; i++)
       {
-        Console.WriteLine($"{(i + 1)}. {pokemonsAdotados[i].Name}");
+        Console.WriteLine($"{(i + 1)}. {pokemonsAdotados[i].Nome}");
       }
     }
   }
