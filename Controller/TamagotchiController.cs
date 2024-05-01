@@ -54,8 +54,11 @@ public class TamagotchiController
                 if (menu.ConfirmarAdocao())
                 {
                   pokemonsAdotados.Add(detalhes);
+                  Console.Clear();
                   Console.WriteLine($"{detalhes.Name}, EU ESCOLHO VOCÊ!!!");
                   Console.WriteLine($"Parabéns! Você acabou de adotar seu Pokémon");
+                  Thread.Sleep(3000);
+                  Console.Clear();
                 }
                 break;
               case 4:
