@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "KeX59IRQATWuTgnQXSq3g1a0W5OfJKqxtiutAIhICq23tZekABqRwukbKXSPHiHJb1cqJjrHdDFMHrwHZl0+FQ==",
+  "dgSpecHash": "bEwf3TXcWKfWrv+aTn3EepcI81ncZHCQaPHsnxaD5hg+Aly81zEqvMOL4io5064xOAM8WyCRtPGoVYEBIMUfZg==",
   "success": true,
   "projectFilePath": "/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/tamagotchi_em_csharp.csproj",
   "expectedPackageFiles": [
+    "/home/andre/.nuget/packages/automapper/13.0.1/automapper.13.0.1.nupkg.sha512",
+    "/home/andre/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/6.0.0/microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "/home/andre/.nuget/packages/microsoft.extensions.options/6.0.0/microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "/home/andre/.nuget/packages/microsoft.extensions.primitives/6.0.0/microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "/home/andre/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/home/andre/.nuget/packages/restsharp/110.2.0/restsharp.110.2.0.nupkg.sha512",
     "/home/andre/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",

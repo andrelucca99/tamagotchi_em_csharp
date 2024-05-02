@@ -1,3 +1,4 @@
+using AutoMapper;
 using Tamagotchi_em_csharp.Model;
 using Tamagotchi_em_csharp.Service;
 using Tamagotchi_em_csharp.View;
@@ -9,15 +10,22 @@ public class TamagotchiController
   private TamagotchiView menu { get; set; }
   private PokemonService pokemonService { get; set; }
   private List<PokemonResponseAPI> pokemonsDisponiveis { get; set; }
-  // private List<PokemonDetails> pokemonsAdotados { get; set; }
   private List<PokemonDTO> pokemonsAdotados { get; set; }
+
+  IMapper mapper { get; set; }
 
   public TamagotchiController()
   {
+    var config = new MapperConfiguration(cfg =>
+    {
+      cfg.AddProfile<AutoMapperProfiler>();
+    });
+
+    mapper = config.CreateMapper();
+
     menu = new TamagotchiView();
     pokemonService = new PokemonService();
     pokemonsDisponiveis = pokemonService.ObeterPokemons();
-    // pokemonsAdotados = new List<PokemonDetails>();
     pokemonsAdotados = new List<PokemonDTO>();
   }
 
@@ -55,9 +63,7 @@ public class TamagotchiController
                 menu.ExibirDetailsDoPokemon(detalhes);
                 if (menu.ConfirmarAdocao())
                 {
-                  // pokemonsAdotados.Add(detalhes);
-                  PokemonDTO newPokemon = new();
-                  newPokemon.AtualizarPropriedades(detalhes);
+                  PokemonDTO newPokemon = mapper.Map<PokemonDTO>(detalhes);
                   pokemonsAdotados.Add(newPokemon);
                   Console.Clear();
                   Console.WriteLine($"{detalhes.Name}, EU ESCOLHO VOCÊ!!!");
@@ -73,7 +79,6 @@ public class TamagotchiController
           }
           break;
         case 2:
-          // menu.ExibirPokemonsAdotados(pokemonsAdotados);
           if (pokemonsAdotados.Count == 0)
           {
             Console.WriteLine("Você não tem nenhum pokémon adotado.");

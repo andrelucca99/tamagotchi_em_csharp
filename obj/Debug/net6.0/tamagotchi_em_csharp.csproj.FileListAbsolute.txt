@@ -19,3 +19,7 @@
 /home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Debug/net6.0/runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll
 /home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/obj/Debug/net6.0/tamagotchi_em_csharp.csproj.CopyComplete
 /home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Debug/net6.0/Newtonsoft.Json.dll
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Debug/net6.0/AutoMapper.dll
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Debug/net6.0/Microsoft.Extensions.Options.dll
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Debug/net6.0/Microsoft.Extensions.Primitives.dll
