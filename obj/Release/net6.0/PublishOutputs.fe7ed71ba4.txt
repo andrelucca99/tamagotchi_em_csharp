@@ -1,0 +1,14 @@
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/tamagotchi_em_csharp
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/tamagotchi_em_csharp.dll
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/tamagotchi_em_csharp.deps.json
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/tamagotchi_em_csharp.runtimeconfig.json
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/tamagotchi_em_csharp.pdb
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/AutoMapper.dll
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/Microsoft.Extensions.Options.dll
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/Microsoft.Extensions.Primitives.dll
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/Newtonsoft.Json.dll
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/RestSharp.dll
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/System.Text.Encodings.Web.dll
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/System.Text.Json.dll
+/home/andre/Documentos/alura/CSHARP/tamagotchi_em_csharp/bin/Release/net6.0/publish/runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll
